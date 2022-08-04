@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MascotasService } from 'src/app/services/mascotas.service';
 
 @Component({
   selector: 'app-dogs',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dogs.component.css']
 })
 export class DogsComponent implements OnInit {
+  mascotas: any[] = [];
+  constructor(private mascotasService: MascotasService) {
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
+    this.mascotasService.getAll().subscribe((datos) => {
+      this.mascotas = datos.result;
+      console.log(datos);
+    });
   }
 
 }

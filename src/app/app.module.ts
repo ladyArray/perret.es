@@ -8,6 +8,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './components/error/error.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const misRutas: Routes = [
   // {path: 'home', component:HomeComponent}
@@ -29,7 +30,8 @@ const misRutas: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(misRutas)
+    RouterModule.forRoot(misRutas),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

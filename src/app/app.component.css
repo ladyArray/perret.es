@@ -1,0 +1,24 @@
+svg{
+  width: 80px;
+  height: 80px;
+}
+
+.bg-container{
+  width: 100%;
+
+
+}
+
+.bg-container::after{
+  background: url(src/assets/banner.png);
+  opacity: 0.5;
+  z-index: -1;
+  content: "";
+  opacity: 0.25;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}

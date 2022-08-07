@@ -1,24 +1,33 @@
 <h1>Nuestras mascotas</h1>
 <nav class="navbar bg-light">
-    <div class="container-fluid">
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-    </div>
+  <div class="container-fluid">
+    <form class="d-flex" role="search">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
+  </div>
 </nav>
 
-
 <div class="container-cards">
-
-<a *ngFor="let mascota of mascotas" routerLink="dog-details" class="card mb-3">
-
-    <div class="title-container"><h3 class="card-header">{{mascota.title | titlecase}}</h3></div>
-    <div class="card-body">
-    <h5 class="card-title">{{mascota.especie | titlecase}}</h5>
-    <h6 class="card-subtitle text-muted">{{mascota.raza | titlecase}}</h6>
+  <a
+    *ngFor="let mascota of mascotas"
+    routerLink="/dog-details/{{mascota.id}}"
+    class="card mb-3"
+  >
+    <div class="title-container">
+      <h3 class="card-header">{{ mascota.title | titlecase }}</h3>
     </div>
-    <img src="{{mascota.foto}}" class="d-block user-select-none" width="100%" height="200" style="font-size:1.125rem;text-anchor:middle">
-
-</a>
+    <div class="card-body">
+      <h5 class="card-title">{{ mascota.especie | titlecase }}</h5>
+      <h6 class="card-subtitle text-muted">{{ mascota.raza | titlecase }}</h6>
+    </div>
+    <div class="card-image">
+      <img src="https://www.zaragoza.es{{ mascota.foto }}" />
+    </div>
+  </a>
 </div>

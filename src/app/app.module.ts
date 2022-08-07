@@ -14,6 +14,7 @@ import { PetDetailComponent } from './components/pet-detail/pet-detail.component
 const misRutas: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'dogs', component: DogsComponent },
+  { path: 'pet/:id', component: PetDetailComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
   { path: '', redirectTo: 'landing', pathMatch: 'full' },

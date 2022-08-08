@@ -1,36 +1,100 @@
-<h1>Perretes</h1>
-<div class="container">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione ab nemo sequi, nihil ducimus sapiente temporibus
-        sunt aut veritatis quis. Nesciunt vitae assumenda hic consequuntur error sequi eos nostrum quaerat.
-        Qui, consequuntur iste aut eveniet maiores cupiditate suscipit excepturi debitis nesciunt dignissimos maxime quo
-        commodi ut quis, sapiente voluptatibus quas tempore? Voluptate vero similique assumenda, blanditiis doloribus
-        autem
-        quae iste.
-        Inventore quaerat recusandae maxime iusto dolorum dignissimos quibusdam ipsum quod voluptate, provident dolores
-        itaque iste sapiente? Sequi atque quo, ratione unde facilis perspiciatis provident architecto temporibus est
-        aspernatur quibusdam itaque!
-        Magni quas, veritatis reprehenderit at vel molestias iure. Modi officiis soluta mollitia autem quod corporis
-        officia
-        repellat vero! Iure pariatur accusantium expedita, ad sapiente molestiae. Illo suscipit eius in earum.
-        Atque odio, officia, pariatur perspiciatis consequatur ullam vero sit error necessitatibus dolor accusamus
-        cumque,
-        nulla nobis quas laborum facere quibusdam! Explicabo exercitationem facere ducimus, quae iste architecto
-        inventore
-        eligendi earum.
-        Quam cum illo dolor natus ratione quia totam quas aliquid. Beatae eligendi ipsam, doloremque perspiciatis
-        dolores
-        maiores mollitia iste fugit quisquam ullam, magni illum, inventore voluptatum cumque quos ratione voluptatibus.
-        Magni voluptas eius distinctio dolor commodi provident, repudiandae, officiis ex error placeat aliquam! Officia
-        nobis voluptates facilis ad minus, quisquam labore, aliquid reprehenderit debitis adipisci beatae delectus
-        voluptatem soluta iusto.
-        Soluta sunt repellendus placeat, officiis alias consectetur fugit, nesciunt laboriosam nemo labore recusandae,
-        harum
-        quos error explicabo magni. Molestiae, pariatur est veritatis aliquam quis nostrum dolorum rerum earum?
-        Aspernatur,
-        totam.
-        Aliquid praesentium sint unde temporibus reiciendis, cupiditate odit odio tempore quidem sapiente, magni amet
-        dolor
-        iste aut explicabo quod! Pariatur, voluptatum soluta? Ut ad iusto iure! Incidunt, doloribus. Iure, voluptate?
-        Voluptatum beatae nisi excepturi. Inventore quia libero non ad, vitae minus quaerat, eaque excepturi numquam ut
-        explicabo eveniet, at nulla animi nostrum alias? Doloremque soluta eius provident adipisci, odit ab?</p>
+<h1>Perret.es</h1>
+<div class="carousel-container">
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="src/assets/dogsbg.jpg" class="d-block w-100" alt="perros felices">
+          </div>
+          <div class="carousel-item">
+            <img src="src/assets/catbg.jpeg" class="d-block w-100" alt="gato durmiendo">
+          </div>
+          <div class="carousel-item">
+            <img src="src/assets/dogbg.jpeg" class="d-block w-100" alt="perro olisqueandote">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+
 </div>
+
+<div class="typewriter-container">
+
+<h1>
+    <a href="" class="typewrite" data-period="2000" data-type='[ "Quiero un perro.", "Quiero un gato"]'>
+        <span class="wrap"></span>
+    </a>
+</h1>
+</div>
+
+<script>
+let TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        let i = this.loopNum % this.toRotate.length;
+        let fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        let that = this;
+        let delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        let elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            let toRotate = elements[i].getAttribute('data-type');
+            let period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+</script>

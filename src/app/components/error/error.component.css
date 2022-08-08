@@ -1,3 +1,5 @@
-img{
+.error-container{
+  margin-inline: auto;
+  display: flex;
   justify-content: center;
 }

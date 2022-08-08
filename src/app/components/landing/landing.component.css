@@ -1,8 +1,27 @@
-.carousel-container {
-  text-align: center;
-  color: black;
-  padding-top:10em;
+.container{
+  margin: auto;
+
 }
+
+
+.carousel-container {
+  color: black;
+  padding-top:1em;
+  align-items: center;
+  justify-content: center;
+  height: 75%;
+  width: 75%;
+}
+
+
 
 * {text-decoration: none;}
 
+h1{
+
+}
+
+img{
+  align-items: center;
+  height: 75%;
+}

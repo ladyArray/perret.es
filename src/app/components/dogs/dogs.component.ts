@@ -8,6 +8,8 @@ import { MascotasService } from 'src/app/services/mascotas.service';
 })
 export class DogsComponent implements OnInit {
   mascotas: any[] = [];
+  searchTerm: string = '';
+  searchFields: string[] = ['title', 'especie', 'raza'];
 
   constructor(private mascotasService: MascotasService) {}
 
@@ -18,6 +20,7 @@ export class DogsComponent implements OnInit {
     });
   }
 
-
-
+  reset() {
+    this.searchTerm = '';
+  }
 }

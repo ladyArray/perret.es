@@ -10,6 +10,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ErrorComponent } from './components/error/error.component';
 import { PetDetailComponent } from './components/pet-detail/pet-detail.component';
 import { FormsModule } from '@angular/forms';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 const misRutas: Routes = [
   { path: 'landing', component: LandingComponent },
@@ -29,6 +30,7 @@ const misRutas: Routes = [
     ContactComponent,
     ErrorComponent,
     PetDetailComponent,
+    SearchFilterPipe,
   ],
   imports: [BrowserModule, RouterModule.forRoot(misRutas), HttpClientModule, FormsModule],
   providers: [],

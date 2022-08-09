@@ -1,6 +1,6 @@
 # Perretes.Com
 
-Goto src/index.html
+Goto [Web](src/index.html) 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 

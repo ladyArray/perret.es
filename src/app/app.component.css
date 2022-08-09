@@ -7,6 +7,15 @@ img {
   width: 100%;
 }
 
+.footer{
+  padding-top: 0.5em;
+}
+
+footer{
+  border-radius: 20px 20px 0px 0px;
+}
+
+
 .bg-container::after {
   content: "";
   position: fixed;

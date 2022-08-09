@@ -28,6 +28,13 @@ p{
   align-items: center;
 }
 
+@media (max-width: 1000px) {
+  .text3 {
+    grid-template-columns: repeat(2, min-content);
+  }
+}
+
+
 
 .card{
   width: 240px;
